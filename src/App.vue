@@ -1,9 +1,18 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/testview">Test view</router-link> |
+    <router-link to="/testviewasync">Test view async</router-link>
   </div>
-  <router-view/>
+  <Suspense>
+    <template #default>
+      <router-view/>
+    </template>
+    <template #fallback>
+      <div>nothing</div>
+    </template>
+  </Suspense>
 </template>
 
 <style>
